@@ -105,7 +105,7 @@ void bubbleSort(int* pData, int n)
 			}
 		}
 
-		if (swapped = 0) {
+		if (swapped == 0) {
 			break;
 		}
 	}
@@ -154,6 +154,13 @@ int parseData(char *inputFileName, int **ppData)
 		fscanf(inFile,"%d\n",&dataSz);
 		*ppData = (int *)malloc(sizeof(int) * dataSz);
 		// Implement parse data block
+		int value;
+		int* tempPtr = *ppData;
+		for (int i = 0; i < dataSz; i++) {
+			fscanf(inFile, "%d", &value);
+			*tempPtr = value;
+			tempPtr++;
+		}
 	}
 	
 	return dataSz;
